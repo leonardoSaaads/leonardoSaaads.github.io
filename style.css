@@ -23,7 +23,7 @@
 }
 
 .hero h2{
-    font-size: 30px;
+    font-size: 32px;
 }
 
 .hero button{
@@ -36,7 +36,7 @@
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 2px;
-    border-radius: 15%;
+    border-radius: 10%;
     cursor: pointer;
 }
 
