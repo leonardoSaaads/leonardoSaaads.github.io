@@ -145,6 +145,13 @@
 
   </script>
 
+  <script type="module">
+    import init, { greet } from "./rust-wasm/pkg/hello_wasm.js";
+    init().then(() => {
+      greet("WebAssembly");
+    });
+  </script>
+
 </body>
 
 </html>

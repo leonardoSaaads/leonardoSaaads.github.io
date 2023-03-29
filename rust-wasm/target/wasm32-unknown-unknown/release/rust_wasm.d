@@ -1,0 +1,1 @@
+C:\Users\leona\OneDrive\Documents\GitHub\leonardoSaaads.github.io\rust-wasm\target\wasm32-unknown-unknown\release\rust_wasm.wasm: C:\Users\leona\OneDrive\Documents\GitHub\leonardoSaaads.github.io\rust-wasm\src\lib.rs
