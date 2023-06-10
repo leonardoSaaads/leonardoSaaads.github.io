@@ -2,214 +2,287 @@
 <html>
 
 <head>
-  <title>Leonardo Saads - Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+  <title>Portfólio Interativo</title>
   <style>
+    /* Adicionar mais estilos e personalização ao site */
     body {
-      font-family: 'Roboto Mono', monospace;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f1f1f1;
     }
 
     header {
       background-color: #333;
       color: white;
       padding: 20px;
+      text-align: center;
     }
 
     header h1 {
       margin: 0;
+      font-size: 36px;
     }
 
-    nav ul {
-      list-style: none;
+    header p {
       margin: 0;
-      padding: 0;
+      font-size: 18px;
     }
 
-    nav li {
-      display: inline-block;
-      margin-right: 20px;
-    }
-
-    section {
+    #chatbox {
+      max-width: 500px;
+      margin: 20px auto;
       padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
-      background-color: #333;
-      color: white;
+    #chat-form input[type="text"] {
+      width: calc(100% - 80px);
       padding: 10px;
-      text-align: center;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    .b-example-divider {
-      border-top: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      height: 2px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(137, 137, 137, 0.75), rgba(0, 0, 0, 0));
+    #chat-form button[type="submit"] {
+      width: 70px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #9b59b6;
+      color: white;
+      cursor: pointer;
     }
 
-    /* Adicione mais estilos personalizados aqui */
-
-    /* Exemplo de estilo personalizado */
-    section#about p {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #333;
+    #chat-form button[type="submit"]:hover {
+      background-color: #8e44ad;
     }
 
-    section#projects ul li:before {
-      content: "\2713\0020";
-      color: green;
+    #chat-output {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
     }
 
-    section#projects ul li {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #333;
+    #chat-output p {
+      margin: 0;
+      padding: 5px;
     }
 
-    section#contact p {
-      font-size: 18px;
-      line-height: 1.5;
-      color: #333;
+    #chat-output p:nth-child(odd) {
+      background-color: #f1f1f1;
     }
 
-    footer p {
-      font-size: 14px;
-      color: #fff;
+    #loading-screen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    #loading-screen p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="container">
-      <h1>Leonardo Saads</h1>
-    </div>
+    <h1>PORTFÓLIO INTERATIVO</h1>
+    <p>Made by Leonardo Saads</p>
   </header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#about">Sobre mim</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <section class="text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Bem-vindo ao meu site</h1>
-      <p class="lead text-muted">Engenheiro de telecomunicações especializado em Rust, Python e projetos de
-        telecomunicações.</p>
-      <p>
-        <a href="rust.html" class="btn btn-primary my-2">Códigos em Rust</a>
-        <a href="python.html" class="btn btn-primary my-2">Programas em Python</a>
-        <a href="#telecom" class="btn btn-primary my-2">Projetos de telecomunicações</a>
-      </p>
-      <div class="overflow-hidden" style="max-height: 30vh;">
-        <div class="container px-5">
-          <img src="Images/hero site.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Telecom image"
-            width="850" height="105" loading="lazy">
-        </div>
-      </div>
+  <section id="chat">
+    <div id="loading-screen" style="display: none;">
+      <p>Carregando...</p>
+    </div>
+    <div id="chatbox">
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Como você deseja modificar esse site?">
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="chat-output"></div>
     </div>
   </section>
-
-  <!-- Divisor -->
-  <hr class="my-4 b-example-divider">
-
-  <section id="about">
-    <div class="container">
-      <h2>Sobre mim</h2>
-      <p>Meu nome é Leonardo, tenho 23 anos e me formei no curso interdisciplinar em Ciências e Tecnologia na
-        Universidade Federal do Rio Grande do Norte de 2018 a 2022. Durante esse período, tive acesso a uma ampla
-        formação em física, matemática, química e fornecido com linguagens de programação como Python, C++ e Javascript.
-      </p>
-      <p>Em 2022 me tornei engenheiro de telecomunicações, onde consegui entrar em contato com softwares como GNU Radio
-        e Ansys HFSS. Além disso, trabalhei em projetos pessoais no Github para ajudar a comunidade e disseminar o
-        conhecimento. Meu objetivo é tornar o conhecimento mais acessível e dinâmico para que outras pessoas possam ter
-        suas vidas transformadas - assim como a minha foi.</p>
-      <p>Gosto de estudar e pesquisar áreas relacionadas à modelagem de Física e Matemática. Além disso, pretendo
-        desenvolver novas técnicas e habilidades em relação ao Deep Learning, Cloud Computing, Big Data e softwares de
-        Telecom.</p>
-    </div>
-    </div>
-  </section>
-
-  <!-- Divisor -->
-  <hr class="my-4 b-example-divider">
-
-  <section id="projects">
-    <div class="container">
-      <h2>Projetos</h2>
-      <ul>
-        <li>HTML & CSS: 65%</li>
-        <li>Python: 95%</li>
-        <li>Rust Lang: 75%</li>
-        <li>Matplotlib, Numpy, Pandas & Keras: 80%</li>
-        <li>Ansys HFSS, GNU Radio: 50%</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Divisor -->
-  <hr class="my-4 b-example-divider">
-
-  <section id="contact">
-    <div class="container">
-      <h2>Contato</h2>
-      <p>Name: Leonardo Saads</p>
-      <p>Profile: Telecommunication engineer</p>
-      <p>Email: leonardospinto@hotmail.com</p>
-      <p>Phone: (84) 99818-3111</p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; Leonardo Saads - Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- jQuery library -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    </script>
 
   <script>
-    // Aguarde até que o documento esteja totalmente carregado
-    $(document).ready(function () {
-      // Selecione todos os links que começam com "#"
-      $('a[href^="#"]').on('click', function (event) {
-        // Armazene o destino do link em uma variável
-        var target = $(this.getAttribute('href'));
-        // Verifique se o destino existe na página
-        if (target.length) {
-          // Impedir o comportamento padrão de rolagem instantânea
-          event.preventDefault();
-          // Animar a rolagem suavemente até o destino
-          $('html, body').stop().animate({
-            scrollTop: target.offset().top
-          }, 1000);
-        }
-      });
+    // Selecionar elementos do DOM
+    const chatForm = document.getElementById('chat-form');
+    const chatOutput = document.getElementById('chat-output');
+    const loadingScreen = document.getElementById('loading-screen');
+
+    // Adicionar evento de envio ao formulário
+    chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Obter a mensagem do usuário
+      const userInput = document.getElementById('user-input');
+      const userMessage = userInput.value;
+
+      // Limpar o campo de entrada
+      userInput.value = '';
+
+      // Substitua YOUR_API_KEY pela sua chave de API real
+      const openaiApiKey = 'YOUR_API_KEY';
+      // Enviar a mensagem do usuário para o ChatGPT
+      fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openaiApiKey}`
+        },
+        body: JSON.stringify({ prompt: userMessage })
+      })
+        .then(response => {
+          console.log(response); // Exibir a resposta completa da API no console
+          if (!response.ok) {
+            throw new Error(`An error occurred: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Exibir a resposta do ChatGPT
+          const chatGPTMessage = data.choices[0].text;
+
+          // Extrair o código da resposta do ChatGPT
+          const codeRegex = /\/\* INICIO DO CÓDIGO \*\/(.*?)\/\* FIM DO CÓDIGO \*\//s;
+          const codeMatch = chatGPTMessage.match(codeRegex);
+          if (codeMatch) {
+            const code = codeMatch[1].trim();
+            // Executar o código
+            try {
+              eval(code);
+            } catch (error) {
+              console.error(error);
+              chatOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+            }
+          }
+
+          // Remover o código da resposta do ChatGPT
+          const nonCodeMessage = chatGPTMessage.replace(codeRegex, '').trim();
+          // Exibir a mensagem sem código para o usuário do site
+          chatOutput.innerHTML += `<p><strong>User:</strong> ${userMessage}</p>`;
+          chatOutput.innerHTML += `<p><strong>ChatGPT:</strong> ${nonCodeMessage}</p>`;
+        })
+        .catch(error => {
+          console.error(error);
+          chatOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+        });
     });
 
-    /* Adicione mais interatividade com JavaScript aqui */
+    // Adicionar evento de carregamento à janela
+    window.addEventListener('load', async () => {
+      // Exibir a tela de carregamento
+      loadingScreen.style.display = 'block';
 
+      // Obter o HTML do site
+      const siteHTML = document.documentElement.outerHTML;
+
+      // Dividir o HTML do site em partes menores e enviar cada parte separadamente para o servidor da OpenAI
+      const maxMessageLength = 3000;
+      let startIndex = 0;
+      while (startIndex < siteHTML.length) {
+        const message = siteHTML.slice(startIndex, startIndex + maxMessageLength);
+
+        // Definir a mensagem para o ChatGPT
+        const initialMessage = `Olá ChatGPT! Você está operando em um site que pode ser modificado com base nas instruções fornecidas por um usuário. Aqui está uma parte do HTML atual do site: ${message}`;
+
+        // Substitua YOUR_API_KEY pela sua chave de API real
+        const openaiApiKey = 'YOUR_API_KEY';
+        // Enviar a mensagem para o servidor da OpenAI e aguardar a resposta
+        await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${openaiApiKey}`
+          },
+          body: JSON.stringify({ prompt: initialMessage })
+        })
+          .then(response => {
+            console.log(response); // Exibir a resposta completa da API no console
+            if (!response.ok) {
+              throw new Error(`An error occurred: ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Exibir a resposta do ChatGPT no console (não exibir na saída do chat)
+            const chatGPTMessage = data.choices[0].text;
+            console.log(`ChatGPT: ${chatGPTMessage}`);
+
+            // Executar o código fornecido pelo ChatGPT
+            try {
+              eval(chatGPTMessage);
+            } catch (error) {
+              console.error(error);
+              // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
+          });
+
+        startIndex += maxMessageLength;
+      }
+
+      // Enviar mensagem adicional para o ChatGPT antes do final do carregamento
+      const finalMessage = `Olá ChatGPT! Para implementar mudanças no site, você precisa declarar /* INICIO DO CÓDIGO */ e /* FIM DO CÓDIGO */.`;
+
+      // Substitua YOUR_API_KEY pela sua chave de API real
+      const openaiApiKey = 'YOUR_API_KEY';
+      // Enviar a mensagem para o servidor da OpenAI e aguardar a resposta
+      await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openaiApiKey}`
+        },
+        body: JSON.stringify({ prompt: finalMessage })
+      })
+        .then(response => {
+          console.log(response); // Exibir a resposta completa da API no console
+          if (!response.ok) {
+            throw new Error(`An error occurred: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Exibir a resposta do ChatGPT no console (não exibir na saída do chat)
+          const chatGPTMessage = data.choices[0].text;
+          console.log(`ChatGPT: ${chatGPTMessage}`);
+
+          // Executar o código fornecido pelo ChatGPT
+          try {
+            eval(chatGPTMessage);
+          } catch (error) {
+            console.error(error);
+            // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
+        });
+
+      // Ocultar a tela de carregamento
+      loadingScreen.style.display = 'none';
+    });
   </script>
 
 </body>
