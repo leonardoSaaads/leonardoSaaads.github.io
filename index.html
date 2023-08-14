@@ -1,290 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 
 <head>
-  <title>Portfólio Interativo</title>
-  <style>
-    /* Adicionar mais estilos e personalização ao site */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-    }
-
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    #chatbox {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    #chat-form input[type="text"] {
-      width: calc(100% - 80px);
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      margin-right: 10px;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    #chat-form button[type="submit"] {
-      width: 70px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      background-color: #9b59b6;
-      color: white;
-      cursor: pointer;
-    }
-
-    #chat-form button[type="submit"]:hover {
-      background-color: #8e44ad;
-    }
-
-    #chat-output {
-      max-height: 200px;
-      overflow-y: auto;
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    #chat-output p {
-      margin: 0;
-      padding: 5px;
-    }
-
-    #chat-output p:nth-child(odd) {
-      background-color: #f1f1f1;
-    }
-
-    #loading-screen {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 9999;
-    }
-
-    #loading-screen p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 24px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leonardo Saads Pinto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 
+<style>
+  body {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 30%, rgba(69, 9, 121, 1) 70%, rgba(160, 0, 206, 1) 100%);
+  }
+
+  /* Adicione a animação fade-in */
+  .fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .lato {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-wrapper {
+    display: flex;
+  }
+
+  .carousel-inner {
+    display: flex;
+    align-items: center;
+    animation: slide 10s linear infinite;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100px;
+    /* Adjust the width as needed */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-img {
+    max-width: 80px;
+    /* Adjust the maximum width as needed */
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
 <body>
+  <!-- HEADER-->
   <header>
-    <h1>PORTFÓLIO INTERATIVO</h1>
-    <p>Made by Leonardo Saads</p>
+    <div class="px-3 py-2 text-bg-dark border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi me-2"
+              viewBox="0 0 16 16" aria-label="Leonardo Saads Pinto">
+              <path
+                d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+            </svg>
+            <h3 class="fw-bold text-sucess">Leonardo Saads Pinto</h3>
+          </a>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                  <path
+                    d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
+                  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#Sobre" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5Zm0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5Zm8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z" />
+                </svg>
+                Sobre
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                  <path
+                    d="M.5 0a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0V.5A.5.5 0 0 1 .5 0zM2 1.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-1zm2 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-1z" />
+                </svg>
+                Experiência
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                  <path
+                    d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                  <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                </svg>
+                Contato
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
+  <!-- HEADER-->
 
-  <section id="chat">
-    <div id="loading-screen" style="display: none;">
-      <p>Carregando...</p>
+  <!-- HERO-->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-white">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis fade-in">Bem-vindo ao meu repositório!</h1>
+        <h4 class="Lato" style="height: 80px; overflow: hidden;"><span id="typed-text"></span></h4>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+        <img class="rounded" src="/Images/hero-ai.jpg" alt="" width="95%">
+      </div>
     </div>
-    <div id="chatbox">
-      <form id="chat-form">
-        <input type="text" id="user-input" placeholder="Como você deseja modificar esse site?">
-        <button type="submit">Enviar</button>
-      </form>
-      <div id="chat-output"></div>
+  </div>
+  <!-- HERO-->
+
+  <!-- EMPRESAS QUE JÁ ATUEI-->
+  <div class="container bg-white rounded">
+    <div class="carousel-container">
+      <h2 class="display-4 text-center my-4">Empresas que já atuei</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-inner">
+          <div class="carousel-slide active">
+            <img alt="anatel" src="/Images/companies/anatel.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="leo" src="/Images/companies/leo.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="mw" src="/Images/companies/mw.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="ufrn" src="/Images/companies/ufrn.png" class="logo-img">
+          </div>
+          <!-- Duplicate the images for looping -->
+          <div class="carousel-slide">
+            <img alt="anatel" src="/Images/companies/anatel.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="leo" src="/Images/companies/leo.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="mw" src="/Images/companies/mw.png" class="logo-img">
+          </div>
+          <div class="carousel-slide">
+            <img alt="ufrn" src="/Images/companies/ufrn.png" class="logo-img">
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+  <hr class="featurette-divider">
+  <!-- EMPRESAS QUE JÁ ATUEI-->
 
-  <script>
-    // Selecionar elementos do DOM
-    const chatForm = document.getElementById('chat-form');
-    const chatOutput = document.getElementById('chat-output');
-    const loadingScreen = document.getElementById('loading-screen');
+  <!-- SOBRE -->
+  <div class="container px-4 py-5 bg-white id="Sobre">
+    <h1 class="display-6 fw-bold lh-1 text-body-emphasis fade-in">Sobre</h1>
 
-    // Adicionar evento de envio ao formulário
-    chatForm.addEventListener('submit', (event) => {
-      event.preventDefault();
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/Images/relatos/bill.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-6 display-6 lh-1 fw-bold">"Excelente profissional"</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Bill Gates</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/Images/relatos/elon.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">"Grande capacidade de inovação"</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Elon Musk</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('/Images/relatos/tom.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">"Muito dedicado e esforçado"</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Tom Cruise</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      // Obter a mensagem do usuário
-      const userInput = document.getElementById('user-input');
-      const userMessage = userInput.value;
+    <hr class="featurette-divider">
 
-      // Limpar o campo de entrada
-      userInput.value = '';
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Leonardo Saads Pinto</h2>
+        <p class="lead">Sou graduado em Ciências e Tecnologia pela UFRN e atualmente cursando Engenharia de Telecomunicações. Sou membro do GppCom e do Laboratório de Telecomunicações da UFRN, onde atuo como suporte técnico para a criação de Sistemas Instrumentais. Também fui tutor de ensino do curso de Laboratório de Prototipagem de Sistemas de Comunicações pelo Programa de Educação Tutorial e pesquisador na criação de antenas patch microstrip para operação em 3.5 GHz e 400 MHz com o software Ansys HFSS. Estou sempre aprendendo sobre Python, Rust, frameworks web e métodos de otimização. 😊</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <image href="/Images/maps/fibermap.jpg" width="100%" height="100%"></image>
+      </svg>
+      </div>
+    </div>
+  </div>
+  <!-- SOBRE -->
 
-      // Substitua YOUR_API_KEY pela sua chave de API real
-      const openaiApiKey = 'YOUR_API_KEY';
-      // Enviar a mensagem do usuário para o ChatGPT
-      fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${openaiApiKey}`
-        },
-        body: JSON.stringify({ prompt: userMessage })
-      })
-        .then(response => {
-          console.log(response); // Exibir a resposta completa da API no console
-          if (!response.ok) {
-            throw new Error(`An error occurred: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Exibir a resposta do ChatGPT
-          const chatGPTMessage = data.choices[0].text;
-
-          // Extrair o código da resposta do ChatGPT
-          const codeRegex = /\/\* INICIO DO CÓDIGO \*\/(.*?)\/\* FIM DO CÓDIGO \*\//s;
-          const codeMatch = chatGPTMessage.match(codeRegex);
-          if (codeMatch) {
-            const code = codeMatch[1].trim();
-            // Executar o código
-            try {
-              eval(code);
-            } catch (error) {
-              console.error(error);
-              chatOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
-            }
-          }
-
-          // Remover o código da resposta do ChatGPT
-          const nonCodeMessage = chatGPTMessage.replace(codeRegex, '').trim();
-          // Exibir a mensagem sem código para o usuário do site
-          chatOutput.innerHTML += `<p><strong>User:</strong> ${userMessage}</p>`;
-          chatOutput.innerHTML += `<p><strong>ChatGPT:</strong> ${nonCodeMessage}</p>`;
-        })
-        .catch(error => {
-          console.error(error);
-          chatOutput.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
-        });
-    });
-
-    // Adicionar evento de carregamento à janela
-    window.addEventListener('load', async () => {
-      // Exibir a tela de carregamento
-      loadingScreen.style.display = 'block';
-
-      // Obter o HTML do site
-      const siteHTML = document.documentElement.outerHTML;
-
-      // Dividir o HTML do site em partes menores e enviar cada parte separadamente para o servidor da OpenAI
-      const maxMessageLength = 3000;
-      let startIndex = 0;
-      while (startIndex < siteHTML.length) {
-        const message = siteHTML.slice(startIndex, startIndex + maxMessageLength);
-
-        // Definir a mensagem para o ChatGPT
-        const initialMessage = `Olá ChatGPT! Você está operando em um site que pode ser modificado com base nas instruções fornecidas por um usuário. Aqui está uma parte do HTML atual do site: ${message}`;
-
-        // Substitua YOUR_API_KEY pela sua chave de API real
-        const openaiApiKey = 'YOUR_API_KEY';
-        // Enviar a mensagem para o servidor da OpenAI e aguardar a resposta
-        await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${openaiApiKey}`
-          },
-          body: JSON.stringify({ prompt: initialMessage })
-        })
-          .then(response => {
-            console.log(response); // Exibir a resposta completa da API no console
-            if (!response.ok) {
-              throw new Error(`An error occurred: ${response.statusText}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            // Exibir a resposta do ChatGPT no console (não exibir na saída do chat)
-            const chatGPTMessage = data.choices[0].text;
-            console.log(`ChatGPT: ${chatGPTMessage}`);
-
-            // Executar o código fornecido pelo ChatGPT
-            try {
-              eval(chatGPTMessage);
-            } catch (error) {
-              console.error(error);
-              // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
-            }
-          })
-          .catch(error => {
-            console.error(error);
-            // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
-          });
-
-        startIndex += maxMessageLength;
-      }
-
-      // Enviar mensagem adicional para o ChatGPT antes do final do carregamento
-      const finalMessage = `Olá ChatGPT! Para implementar mudanças no site, você precisa declarar /* INICIO DO CÓDIGO */ e /* FIM DO CÓDIGO */.`;
-
-      // Substitua YOUR_API_KEY pela sua chave de API real
-      const openaiApiKey = 'YOUR_API_KEY';
-      // Enviar a mensagem para o servidor da OpenAI e aguardar a resposta
-      await fetch('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${openaiApiKey}`
-        },
-        body: JSON.stringify({ prompt: finalMessage })
-      })
-        .then(response => {
-          console.log(response); // Exibir a resposta completa da API no console
-          if (!response.ok) {
-            throw new Error(`An error occurred: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Exibir a resposta do ChatGPT no console (não exibir na saída do chat)
-          const chatGPTMessage = data.choices[0].text;
-          console.log(`ChatGPT: ${chatGPTMessage}`);
-
-          // Executar o código fornecido pelo ChatGPT
-          try {
-            eval(chatGPTMessage);
-          } catch (error) {
-            console.error(error);
-            // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          // Não exibir mensagens de erro na saída do chat enquanto o site está sendo carregado
-        });
-
-      // Ocultar a tela de carregamento
-      loadingScreen.style.display = 'none';
-    });
-  </script>
-
+  
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+  // Crie uma nova instância do Typed.js
+  var typed = new Typed('#typed-text', {
+    strings: [
+      "Sou um genhereiro de telecomunicações, que está disposto a te ajudar no que precisar!",
+      "Atuação tanto em Network Operation Sistem (NOC) como também desenvolvedor!",
+      "Gostaria de me conhecer mais? clique em contato e vamos bater um papo!"
+    ],
+    typeSpeed: 25,
+    backSpeed: 15,
+    loop: false
+  });
+</script>
 
 </html>
